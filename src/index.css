@@ -1,0 +1,49 @@
+@import "@mantine/core/styles.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Monserrat", serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eef7fd;
+  color: rgb(63, 62, 62);
+}
+
+h1 {
+  text-align: center;
+  font-weight: 600;
+}
+.ticket-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+input {
+  margin-right: 0.5rem;
+}
+
+.custom-button {
+  width: 130px;
+  padding: 2px;
+  height: 60px;
+  background-color: rgb(245, 143, 26);
+  color: white;
+  font-size: 16px;
+  white-space: normal;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.custom-button:hover {
+  background-color: rgb(245, 170, 57);
+}
