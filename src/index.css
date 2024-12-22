@@ -1,0 +1,140 @@
+@import "@mantine/core/styles.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Monserrat", serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eef7fd;
+  color: rgb(63, 62, 62);
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 600;
+}
+.ticket-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+input {
+  margin-right: 0.5rem;
+}
+
+.custom-button {
+  width: 170px;
+  padding: 2px;
+  height: 50px;
+  background-color: #ff6d00;
+  color: white;
+  font-size: 16px;
+  white-space: normal;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.custom-button:hover {
+  background-color: #fe8224;
+}
+
+.currency-button {
+  border-radius: 0;
+  border: 1px solid #ccc;
+  height: 40px;
+  background-color: white;
+  color: #1c7ed6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.currency-button:hover {
+  background-color: #e6f7ff;
+}
+
+.currency-button.active {
+  background-color: #1c7ed6;
+  color: white;
+}
+
+.panel-checkbox {
+  padding: 0 10px;
+}
+
+.panel-checkbox:hover {
+  background: #e6f7ff;
+}
+
+.app-container {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 950px) {
+  .app-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.ticket-button {
+  width: 35%;
+  max-width: 170px;
+  justify-content: flex-start;
+}
+
+.time {
+  font-size: 32px;
+}
+.plane-trace {
+  width: 120px;
+}
+.card-container {
+  width: 600px;
+}
+
+@media (max-width: 650px) {
+  .card-container {
+    width: 500px;
+  }
+  .time {
+    font-size: 28px;
+  }
+  .plane-trace {
+    width: 100px;
+  }
+  .ticket-button {
+    max-width: 130px;
+  }
+  .custom-button {
+    width: 130px;
+  }
+}
+
+@media (max-width: 550px) {
+  .card-container {
+    width: 470px;
+  }
+  .time {
+    font-size: 24px;
+  }
+
+  .ticket-button {
+    max-width: 130px;
+  }
+  .custom-button {
+    width: 110px;
+  }
+}
+.mantine-Checkbox-inner {
+  margin-top: 7px;
+}
