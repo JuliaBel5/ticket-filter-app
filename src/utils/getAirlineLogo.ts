@@ -1,4 +1,4 @@
-import TurkishAirlinesLogo from "../assets/TurkishAirlinesLogo.svg";
+import TurkishAirlinesLogo from "../assets/turkishAirlines.png";
 import S7Logo from "../assets/S7Logo.svg";
 import AeroflotLogo from "../assets/AeroflotLogo.svg";
 import BritishAirwaysLogo from "../assets/BritishAirwaysLogo.svg";

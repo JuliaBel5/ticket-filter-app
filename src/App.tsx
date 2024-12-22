@@ -1,27 +1,15 @@
 import { useState, useEffect } from "react";
 import { Container, Stack, Image, Box } from "@mantine/core";
-import TicketCard from "./components/TicketCard";
-import Panel from "./components/Panel";
+import { TicketCard } from "./components/TicketCard";
+import { Panel } from "./components/Panel";
 import ticketsData from "./data/tickets.json";
-
-interface Ticket {
-  origin: string;
-  origin_name: string;
-  destination: string;
-  destination_name: string;
-  departure_date: string;
-  departure_time: string;
-  arrival_date: string;
-  arrival_time: string;
-  carrier: string;
-  stops: number;
-  price: number;
-}
+import { conversionRates } from "./utils/rates";
+import { Ticket } from "./types/ticket";
 
 const App: React.FC = () => {
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [filters, setFilters] = useState<number[]>([]);
-
+  const [currency, setCurrency] = useState("RUB");
   useEffect(() => {
     setTickets(ticketsData.tickets);
   }, []);
@@ -30,7 +18,15 @@ const App: React.FC = () => {
     .filter((ticket) =>
       filters.length > 0 ? filters.includes(ticket.stops) : true
     )
-    .sort((a, b) => a.price - b.price);
+    .map((ticket) => ({
+      ...ticket,
+      convertedPrice: (
+        ticket.price * (conversionRates.get(currency) ?? 1)
+      ).toFixed(2),
+    }))
+    .sort(
+      (a, b) => parseFloat(a.convertedPrice) - parseFloat(b.convertedPrice)
+    );
 
   return (
     <Container w={"100%"}>
@@ -42,8 +38,12 @@ const App: React.FC = () => {
           mx="auto"
         />
 
-        <Box display="flex" w={"100%"} style={{ gap: "20px" }}>
-          <Panel selectedStops={filters} onFilterChange={setFilters} />
+        <Box display="flex" w={"100%"} className="app-container">
+          <Panel
+            setCurrency={setCurrency}
+            selectedStops={filters}
+            onFilterChange={setFilters}
+          />
 
           <Stack>
             {filteredTickets.map((ticket, index) => (
@@ -59,7 +59,8 @@ const App: React.FC = () => {
                 arrival_time={ticket.arrival_time}
                 carrier={ticket.carrier}
                 stops={ticket.stops}
-                price={ticket.price}
+                price={parseFloat(ticket.convertedPrice)}
+                currency={currency}
               />
             ))}
           </Stack>
