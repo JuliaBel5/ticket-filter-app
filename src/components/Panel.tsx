@@ -1,5 +1,5 @@
 import { getStopLabel } from "@/utils/getStopLabel";
-import { Checkbox, Stack, Title, Group, Text, Box } from "@mantine/core";
+import { Checkbox, Stack, Title, Group, Text, Paper } from "@mantine/core";
 import { useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 import { CurrencyButton } from "./CurrencyButton";
@@ -41,10 +41,13 @@ export const Panel: React.FC<PanelProps> = ({
   };
 
   return (
-    <Box
+    <Paper
       w={"300px"}
       h={"400px"}
-      style={{ backgroundColor: "white", borderRadius: 8 }}
+      shadow="sm"
+      radius="md"
+      withBorder
+      style={{ backgroundColor: "white" }}
     >
       <Group justify="center" my="lg" gap={0} w="100%">
         {["RUB", "USD", "EUR"].map((currency) => (
@@ -100,6 +103,6 @@ export const Panel: React.FC<PanelProps> = ({
           </Group>
         ))}
       </Stack>
-    </Box>
+    </Paper>
   );
 };
