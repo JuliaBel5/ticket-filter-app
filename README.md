@@ -1,50 +1,70 @@
-# React + TypeScript + Vite
+# Ticket Search Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application renders a ticket search page with filtering options, designed to match a specified layout. It is built using React with TypeScript and supports sorting and filtering functionality for ticket data from a JSON file. The project is bundled using Vite, providing a fast and modern development experience.
+The application is deployed and available at: [Ticket Search Application](https://ticket-filter-app.onrender.com/)
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. Ticket Rendering (#task1)
 
-## Expanding the ESLint configuration
+- Renders tickets dynamically using React.
+- Data is sourced from a local `tickets.json` file.
+- Tickets are automatically sorted by price in ascending order.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 2. Ticket Filtering (#task2)
 
-- Configure the top-level `parserOptions` property like this:
+- Implements filtering by the number of stops.
+- Users can select filters to refine the ticket list based on their preferences.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation
+
+### 1. Clone the repository:
+
+```
+git clone https://github.com/JuliaBel5/ticket-filter-app.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm install
+```
+
+### 3. Start the development server:
+
+```
+npm run dev
+```
+
+### 4. Open the app in your browser: http://localhost:5173
+
+## Key Technologies
+
+- **React**: Component-based UI rendering.
+- **TypeScript**: Provides type safety for better maintainability.
+- **Mantine**: Component library for styling.
+- **Vite**: A fast bundler and dev server for modern front-end projects.
+
+## Usage
+
+### View Tickets
+
+- All tickets are displayed by default, sorted by price.
+
+### Filter Tickets
+
+- Use the filter panel to select the desired number of stops.
+
+### Change Currency
+
+- Switch between **RUB**, **USD**, and **EUR** for ticket prices.
+
+## License
+
+This project is licensed under the MIT License.
+
+Feel free to fork and modify the project as needed!
+
+## Author
+
+If you have any questions or suggestions, please contact me at juliabel5@gmail.com.
