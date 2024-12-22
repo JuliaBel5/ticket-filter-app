@@ -2,7 +2,7 @@ import { Card, Text, Group, Image, Stack, Box } from "@mantine/core";
 import getAirlineLogo from "@/utils/getAirlineLogo";
 import { IoAirplaneSharp } from "react-icons/io5";
 import { CustomButton } from "./CustomButton";
-import { TicketItem } from "src/types/ticketType";
+import { TicketItem } from "src/types/ticketItem";
 import { formatDate } from "@/utils/formatDate";
 import { getStopLabel } from "@/utils/getStopLabel";
 
