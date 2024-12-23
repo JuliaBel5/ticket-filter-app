@@ -61,7 +61,7 @@ export const Panel: React.FC<PanelProps> = ({
       </Group>
 
       <Title order={3} mx="md" mb="md" size="h5">
-        Количество пересадок
+        КОЛИЧЕСТВО ПЕРЕСАДОК
       </Title>
 
       <Stack gap={0}>

@@ -5,13 +5,28 @@ import { Panel } from "./components/Panel";
 import ticketsData from "./data/tickets.json";
 import { conversionRates } from "./utils/rates";
 import { Ticket } from "./types/ticket";
+import { fetchConversionRates } from "./service/conversionRatesService";
+import { ERROR_MESSAGES } from "./constants/apiConstants";
 
 const App: React.FC = () => {
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [filters, setFilters] = useState<number[]>([]);
+  const [exchangeRates, setExchangeRates] =
+    useState<Map<string, number>>(conversionRates);
   const [currency, setCurrency] = useState("RUB");
+
   useEffect(() => {
-    setTickets(ticketsData.tickets);
+    const loadData = async () => {
+      try {
+        setTickets(ticketsData.tickets);
+        const rates = await fetchConversionRates();
+        setExchangeRates(rates);
+      } catch (error) {
+        console.error(ERROR_MESSAGES.LOADING_ERROR, error);
+      }
+    };
+
+    loadData();
   }, []);
 
   const filteredTickets = tickets
@@ -21,7 +36,7 @@ const App: React.FC = () => {
     .map((ticket) => ({
       ...ticket,
       convertedPrice: (
-        ticket.price * (conversionRates.get(currency) ?? 1)
+        ticket.price * (exchangeRates.get(currency) ?? 1)
       ).toFixed(2),
     }))
     .sort(
